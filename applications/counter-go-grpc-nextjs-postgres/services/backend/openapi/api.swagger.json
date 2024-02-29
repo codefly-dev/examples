@@ -44,7 +44,8 @@
       "type": "object",
       "properties": {
         "version": {
-          "type": "string"
+          "type": "string",
+          "title": "string commit = 2;"
         }
       }
     },
