@@ -10,10 +10,10 @@ implement your APIs there.
 ----------------------------------------------------------------- */
 
 import (
+	gen "backend/pkg/gen"
 	"context"
 	"fmt"
 	"github.com/bufbuild/protovalidate-go"
-	gen2 "backend/pkg/gen"
 	"net"
 
 	"google.golang.org/grpc/codes"
@@ -45,11 +45,11 @@ func Validate(req proto.Message) error {
 	return nil
 }
 
-func (s *GrpcServer) Version(ctx context.Context, req *gen2.VersionRequest) (*gen2.VersionResponse, error) {
+func (s *GrpcServer) Version(ctx context.Context, req *gen.VersionRequest) (*gen.VersionResponse, error) {
 	if err := Validate(req); err != nil {
 		return nil, err
 	}
-	return &gen2.VersionResponse{
+	return &gen.VersionResponse{
 		Version: codefly.Version(),
 	}, nil
 }
@@ -60,7 +60,7 @@ type Configuration struct {
 }
 
 type GrpcServer struct {
-	gen2.UnimplementedBackendServiceServer
+	gen.UnsafeBackendServiceServer
 	configuration *Configuration
 	gRPC          *grpc.Server
 	validator     *protovalidate.Validator
@@ -78,7 +78,7 @@ func NewGrpServer(c *Configuration) (*GrpcServer, error) {
 		gRPC:          grpcServer,
 		validator:     v,
 	}
-	gen2.RegisterBackendServiceServer(grpcServer, &s)
+	gen.RegisterBackendServiceServer(grpcServer, &s)
 	reflection.Register(grpcServer)
 	return &s, nil
 }

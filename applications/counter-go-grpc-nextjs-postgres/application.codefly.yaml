@@ -1,6 +1,5 @@
 kind: application
 name: counter-go-grpc-nextjs-postgres
 project: examples
-domain: ""
 services:
     - name: backend

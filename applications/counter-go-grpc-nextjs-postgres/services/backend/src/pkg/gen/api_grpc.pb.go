@@ -19,7 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	BackendService_Version_FullMethodName = "/api.BackendService/Version"
+	BackendService_Version_FullMethodName            = "/api.BackendService/Version"
+	BackendService_CreateVisit_FullMethodName        = "/api.BackendService/CreateVisit"
+	BackendService_GetVisitStatistics_FullMethodName = "/api.BackendService/GetVisitStatistics"
 )
 
 // BackendServiceClient is the client API for BackendService service.
@@ -27,6 +29,8 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BackendServiceClient interface {
 	Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionResponse, error)
+	CreateVisit(ctx context.Context, in *CreateVisitRequest, opts ...grpc.CallOption) (*CreateVisitResponse, error)
+	GetVisitStatistics(ctx context.Context, in *GetVisitStatisticsRequest, opts ...grpc.CallOption) (*GetVisitStatisticsResponse, error)
 }
 
 type backendServiceClient struct {
@@ -46,11 +50,31 @@ func (c *backendServiceClient) Version(ctx context.Context, in *VersionRequest, 
 	return out, nil
 }
 
+func (c *backendServiceClient) CreateVisit(ctx context.Context, in *CreateVisitRequest, opts ...grpc.CallOption) (*CreateVisitResponse, error) {
+	out := new(CreateVisitResponse)
+	err := c.cc.Invoke(ctx, BackendService_CreateVisit_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *backendServiceClient) GetVisitStatistics(ctx context.Context, in *GetVisitStatisticsRequest, opts ...grpc.CallOption) (*GetVisitStatisticsResponse, error) {
+	out := new(GetVisitStatisticsResponse)
+	err := c.cc.Invoke(ctx, BackendService_GetVisitStatistics_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BackendServiceServer is the server API for BackendService service.
 // All implementations must embed UnimplementedBackendServiceServer
 // for forward compatibility
 type BackendServiceServer interface {
 	Version(context.Context, *VersionRequest) (*VersionResponse, error)
+	CreateVisit(context.Context, *CreateVisitRequest) (*CreateVisitResponse, error)
+	GetVisitStatistics(context.Context, *GetVisitStatisticsRequest) (*GetVisitStatisticsResponse, error)
 	mustEmbedUnimplementedBackendServiceServer()
 }
 
@@ -60,6 +84,12 @@ type UnimplementedBackendServiceServer struct {
 
 func (UnimplementedBackendServiceServer) Version(context.Context, *VersionRequest) (*VersionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Version not implemented")
+}
+func (UnimplementedBackendServiceServer) CreateVisit(context.Context, *CreateVisitRequest) (*CreateVisitResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateVisit not implemented")
+}
+func (UnimplementedBackendServiceServer) GetVisitStatistics(context.Context, *GetVisitStatisticsRequest) (*GetVisitStatisticsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetVisitStatistics not implemented")
 }
 func (UnimplementedBackendServiceServer) mustEmbedUnimplementedBackendServiceServer() {}
 
@@ -92,6 +122,42 @@ func _BackendService_Version_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _BackendService_CreateVisit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateVisitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BackendServiceServer).CreateVisit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BackendService_CreateVisit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BackendServiceServer).CreateVisit(ctx, req.(*CreateVisitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BackendService_GetVisitStatistics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVisitStatisticsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BackendServiceServer).GetVisitStatistics(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BackendService_GetVisitStatistics_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BackendServiceServer).GetVisitStatistics(ctx, req.(*GetVisitStatisticsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // BackendService_ServiceDesc is the grpc.ServiceDesc for BackendService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -102,6 +168,14 @@ var BackendService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Version",
 			Handler:    _BackendService_Version_Handler,
+		},
+		{
+			MethodName: "CreateVisit",
+			Handler:    _BackendService_CreateVisit_Handler,
+		},
+		{
+			MethodName: "GetVisitStatistics",
+			Handler:    _BackendService_GetVisitStatistics_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

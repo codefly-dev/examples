@@ -2,18 +2,53 @@ syntax = "proto3";
 package api;
 
 import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
 
 message VersionRequest {
 }
 
 message VersionResponse {
     string version = 1;
+    string hello = 2;
+}
+
+message CreateVisitRequest {
+}
+
+message CreateVisitResponse {
+    int64 visit_number = 1;
+}
+
+message DailyVisitStatistics {
+    google.protobuf.Timestamp date = 1;
+    int64 visits = 2;
+}
+
+message GetVisitStatisticsRequest {
+}
+
+
+message GetVisitStatisticsResponse {
+    int64 total_visits = 1;
+    repeated DailyVisitStatistics visits = 2;
 }
 
 service BackendService {
     rpc Version(VersionRequest) returns (VersionResponse) {
         option (google.api.http) = {
             get: "/version"
+        };
+    }
+
+    rpc CreateVisit(CreateVisitRequest) returns (CreateVisitResponse) {
+        option (google.api.http) = {
+            post: "/visit"
+        };
+    }
+
+    rpc GetVisitStatistics(GetVisitStatisticsRequest) returns (GetVisitStatisticsResponse) {
+        option (google.api.http) = {
+            get: "/visit/statistics"
         };
     }
 }

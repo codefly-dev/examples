@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-counter-go-grpc-nextjs-postgres
+  namespace: counter-go-grpc-nextjs-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-counter-go-grpc-nextjs-postgres
+  template:
+    metadata:
+      labels:
+        app: backend-counter-go-grpc-nextjs-postgres
+    spec:
+      containers:
+        - name: backend-counter-go-grpc-nextjs-postgres
+          image: image:tag

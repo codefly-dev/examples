@@ -37,15 +37,99 @@
           "BackendService"
         ]
       }
+    },
+    "/visit": {
+      "post": {
+        "operationId": "BackendService_CreateVisit",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateVisitResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "BackendService"
+        ]
+      }
+    },
+    "/visit/statistics": {
+      "get": {
+        "operationId": "BackendService_GetVisitStatistics",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetVisitStatisticsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "BackendService"
+        ]
+      }
     }
   },
   "definitions": {
+    "apiCreateVisitResponse": {
+      "type": "object",
+      "properties": {
+        "visitNumber": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "apiDailyVisitStatistics": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "visits": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "apiGetVisitStatisticsResponse": {
+      "type": "object",
+      "properties": {
+        "totalVisits": {
+          "type": "string",
+          "format": "int64"
+        },
+        "visits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/apiDailyVisitStatistics"
+          }
+        }
+      }
+    },
     "apiVersionResponse": {
       "type": "object",
       "properties": {
         "version": {
-          "type": "string",
-          "title": "string commit = 2;"
+          "type": "string"
+        },
+        "hello": {
+          "type": "string"
         }
       }
     },
