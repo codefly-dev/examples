@@ -1,0 +1,20 @@
+name: web
+version: 0.0.0
+application: counter-go-grpc-nextjs-postgres
+project: examples
+source-version-control: web
+namespace: counter-go-grpc-nextjs-postgres
+agent:
+    kind: codefly:service
+    name: nextjs
+    version: 0.0.3
+    publisher: codefly.dev
+service-dependencies:
+    - name: backend
+provider-dependencies: []
+endpoints:
+    - name: web
+      visibility: public
+      api: http
+spec:
+    debug: false

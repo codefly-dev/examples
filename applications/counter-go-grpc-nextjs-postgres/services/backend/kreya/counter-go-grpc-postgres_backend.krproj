@@ -10,6 +10,15 @@
         "endpoint": "http://localhost:45523",
         "disableServerCertificateValidation": true
       }
+    },
+    {
+      "id": "b2645667-16b5-43a3-a61d-60a1b8a9a38e",
+      "name": "rest",
+      "importerName": "OpenApiFileImporter",
+      "createMissingOperations": true,
+      "options": {
+        "path": "../openapi/api.swagger.json"
+      }
     }
   ],
   "authConfigs": [],

@@ -1,5 +1,7 @@
 kind: application
 name: counter-go-grpc-nextjs-postgres
 project: examples
+source-version-control: ""
 services:
     - name: backend
+    - name: web

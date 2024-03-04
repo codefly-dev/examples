@@ -1,0 +1,13 @@
+{
+  "details": {
+    "methodFqn": "api.BackendService.Version2"
+  },
+  "requests": [
+    {
+      "location": "Version2-request.json"
+    }
+  ],
+  "operationType": "unary",
+  "invokerName": "grpc",
+  "importStreamId": "78d7d098-d205-477e-99cd-6678d49b33f7"
+}

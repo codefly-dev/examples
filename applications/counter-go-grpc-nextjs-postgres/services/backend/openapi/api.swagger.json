@@ -127,9 +127,6 @@
       "properties": {
         "version": {
           "type": "string"
-        },
-        "hello": {
-          "type": "string"
         }
       }
     },

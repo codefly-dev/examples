@@ -4,5 +4,5 @@ resources:
 
 images:
   - name: image:tag
-    newName: examples/counter-go-grpc-nextjs-postgres/backend
+    newName: 621829027644.dkr.ecr.us-east-1.amazonaws.com/codefly-dev/examples/counter-go-grpc-nextjs-postgres/backend
     newTag: 0.0.0

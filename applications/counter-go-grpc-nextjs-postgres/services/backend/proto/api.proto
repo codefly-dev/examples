@@ -9,7 +9,6 @@ message VersionRequest {
 
 message VersionResponse {
     string version = 1;
-    string hello = 2;
 }
 
 message CreateVisitRequest {

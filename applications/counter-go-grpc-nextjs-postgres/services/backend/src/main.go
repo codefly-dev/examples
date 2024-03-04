@@ -20,9 +20,9 @@ func doWork(ctx context.Context) (Clean, error) {
 ----------------------------------------------------------------- */
 
 import (
+	"backend/pkg/adapters"
 	"context"
 	"fmt"
-	"backend/pkg/adapters"
 	"os/signal"
 	"syscall"
 

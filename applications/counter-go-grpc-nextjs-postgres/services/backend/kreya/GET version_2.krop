@@ -1,0 +1,16 @@
+{
+  "details": {
+    "path": "/version_2",
+    "method": "GET",
+    "importedOperationId": "GET /version_2"
+  },
+  "requests": [
+    {
+      "contentType": "none"
+    }
+  ],
+  "operationType": "unary",
+  "invokerName": "rest",
+  "typeHint": "GET",
+  "importStreamId": "b2645667-16b5-43a3-a61d-60a1b8a9a38e"
+}

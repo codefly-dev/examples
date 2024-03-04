@@ -1,0 +1,16 @@
+{
+  "details": {
+    "path": "/visit",
+    "method": "POST",
+    "importedOperationId": "POST /visit"
+  },
+  "requests": [
+    {
+      "contentType": "none"
+    }
+  ],
+  "operationType": "unary",
+  "invokerName": "rest",
+  "typeHint": "POST",
+  "importStreamId": "b2645667-16b5-43a3-a61d-60a1b8a9a38e"
+}
