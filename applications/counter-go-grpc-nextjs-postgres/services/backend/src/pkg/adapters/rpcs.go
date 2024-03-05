@@ -3,9 +3,10 @@ package adapters
 import (
 	"backend/pkg/gen"
 	"context"
-	"google.golang.org/protobuf/types/known/timestamppb"
 	"math/rand"
 	"time"
+
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 func (s *GrpcServer) CreateVisit(ctx context.Context, request *gen.CreateVisitRequest) (*gen.CreateVisitResponse, error) {
@@ -42,6 +43,6 @@ func generateFakeData() []*gen.DailyVisitStatistics {
 func (s *GrpcServer) GetVisitStatistics(ctx context.Context, request *gen.GetVisitStatisticsRequest) (*gen.GetVisitStatisticsResponse, error) {
 	return &gen.GetVisitStatisticsResponse{
 		Visits:      generateFakeData(),
-		TotalVisits: 1000,
+		TotalVisits: 1200,
 	}, nil
 }

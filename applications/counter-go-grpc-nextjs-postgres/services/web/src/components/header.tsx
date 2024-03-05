@@ -16,6 +16,11 @@ const Header = ({  }: HeaderProps) => {
       <Link href="/demo" style={{ marginLeft: '20px'}}>
         <h1>Demo</h1>
       </Link>
+
+
+      <Link href="/visits" style={{ marginLeft: '20px'}}>
+        <h1>Visits</h1>
+      </Link>
       </div>
 
       <nav className="flex justify-center">
