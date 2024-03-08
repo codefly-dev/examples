@@ -1,5 +1,5 @@
 name: backend
-version: 0.0.0
+version: 0.0.1
 application: counter-go-grpc-nextjs-postgres
 project: examples
 source-version-control: backend
@@ -7,7 +7,7 @@ namespace: counter-go-grpc-nextjs-postgres
 agent:
     kind: codefly:service
     name: go-grpc
-    version: 0.0.89
+    version: 0.0.90
     publisher: codefly.dev
 service-dependencies: []
 provider-dependencies: []
@@ -15,7 +15,7 @@ endpoints:
     - name: grpc
       api: grpc
     - name: rest
-      visibility: private
+      visibility: public
       api: rest
 spec:
     debug: false
@@ -24,3 +24,4 @@ spec:
     with-grpc-unimplemented: true
     with-race-condition-detection-run: false
     with-rest-endpoint: true
+runtimespec: {}

@@ -2,4 +2,5 @@ name: examples
 id: 7896fcf4-d647-11ee-9cc5-acde48001122
 applications:
     - name: counter-go-grpc-nextjs-postgres
+    - name: counter-python-nextjs-postgres
 environments: []

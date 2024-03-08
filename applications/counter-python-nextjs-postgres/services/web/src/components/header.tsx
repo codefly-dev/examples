@@ -16,11 +16,6 @@ const Header = ({  }: HeaderProps) => {
       <Link href="/routing" style={{ marginLeft: '20px'}}>
         <h1>Routing</h1>
       </Link>
-
-
-      <Link href="/visits" style={{ marginLeft: '20px'}}>
-        <h1>Visits</h1>
-      </Link>
       </div>
 
       <nav className="flex justify-center">
