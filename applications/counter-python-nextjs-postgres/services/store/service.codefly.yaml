@@ -1,0 +1,24 @@
+name: store
+version: 0.0.0
+application: counter-python-nextjs-postgres
+project: examples
+source-version-control: store
+namespace: counter-python-nextjs-postgres
+agent:
+    kind: codefly:service
+    name: external-postgres
+    version: 0.0.17
+    publisher: codefly.dev
+service-dependencies: []
+provider-dependencies: []
+endpoints:
+    - name: psql
+      visibility: application
+      api: tcp
+spec:
+    database-name: counter-python-nextjs-postgres
+    debug: false
+    persist: false
+    silent: true
+    watch: false
+    without-ssl: false

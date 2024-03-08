@@ -1,0 +1,22 @@
+name: backend
+version: 0.0.0
+application: counter-python-nextjs-postgres
+project: examples
+source-version-control: backend
+namespace: counter-python-nextjs-postgres
+agent:
+    kind: codefly:service
+    name: python-fastapi
+    version: 0.0.26
+    publisher: codefly.dev
+service-dependencies:
+    - name: store
+provider-dependencies: []
+endpoints:
+    - name: rest
+      visibility: private
+      api: rest
+spec:
+    debug: false
+    watch: true
+runtimespec: {}

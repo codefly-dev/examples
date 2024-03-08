@@ -1,0 +1,8 @@
+kind: application
+name: counter-python-nextjs-postgres
+project: examples
+source-version-control: ""
+services:
+    - name: backend
+    - name: store
+    - name: web
