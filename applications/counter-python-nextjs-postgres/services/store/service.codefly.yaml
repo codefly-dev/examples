@@ -18,7 +18,7 @@ endpoints:
 spec:
     database-name: counter-python-nextjs-postgres
     debug: false
-    no-migration: false # DEBUGGING/DEMO
+    no-migration: false
     persist: false
     silent: false
     watch: false
