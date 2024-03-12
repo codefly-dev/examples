@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: store-counter-python-nextjs-postgres
+  namespace: counter-python-nextjs-postgres
+spec:
+  template:
+    spec:
+      containers:
+        - name: store-counter-python-nextjs-postgres
+          image: image:tag
+          envFrom:
+            - secretRef:
+                name: secret-store-counter-python-nextjs-postgres
+      restartPolicy: Never

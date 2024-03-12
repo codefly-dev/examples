@@ -7,7 +7,7 @@ namespace: counter-go-grpc-nextjs-postgres
 agent:
     kind: codefly:service
     name: go-grpc
-    version: 0.0.90
+    version: 0.0.92
     publisher: codefly.dev
 service-dependencies: []
 provider-dependencies: []
@@ -24,4 +24,3 @@ spec:
     with-grpc-unimplemented: true
     with-race-condition-detection-run: false
     with-rest-endpoint: true
-runtimespec: {}

@@ -23,7 +23,7 @@ const DataInput = () => {
             }
 
             setLoading(true);
-            const response = await fetch( url, {
+            const response = await fetch("http://" + url, {
                 method: method,
                 headers: {
                     'Content-Type': 'application/json',

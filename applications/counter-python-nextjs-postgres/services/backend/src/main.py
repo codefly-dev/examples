@@ -24,7 +24,7 @@ if codefly.is_local():
         allow_headers=["*"],
     )
 
-connection = codefly.get_service_provider_info("counter-python-nextjs-postgres/store", "postgres", "connection")
+connection = codefly.get_service_provider_info("counter-python-nextjs-postgres/store2", "postgres", "connection")
 if connection:
     store = Storage(connection)
 
