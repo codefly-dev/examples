@@ -24,19 +24,28 @@ if codefly.is_local():
         allow_headers=["*"],
     )
 
-connection = codefly.get_service_provider_info("counter-python-nextjs-postgres/store2", "postgres", "connection")
+for env in os.environ:
+    if env.startswith("CODEFLY"):
+        print(env)
+
+connection = codefly.get_service_provider_info(application="counter-python-nextjs-postgres", service="store", name="postgres", key="connection")
+
 if connection:
+    print("connection", connection)
     store = Storage(connection)
+else:
+    print("no connection")
 
 
 @app.get("/version")
 async def version():
-    return {"version": codefly.service().version}
+    return {"version": codefly.get_service().version}
 
 
 @app.post("/visit", response_model=CreateVisitResponse)
 async def visit():
     if not store:
+        print("no store")
         raise HTTPException(status_code=500, detail="No store available")
     resp = store.create_visit()
     if not resp:
@@ -47,9 +56,9 @@ async def visit():
 @app.get("/visit/statistics", response_model=GetVisitStatisticsResponse)
 async def visit():
     if not store:
+        print("no store")
         raise HTTPException(status_code=500, detail="No store available")
     resp = store.get_visit_statistics()
     if not resp:
         raise HTTPException(status_code=500, detail="Can't create visit")
     return resp
-
