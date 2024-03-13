@@ -7,7 +7,7 @@ namespace: counter-go-grpc-nextjs-postgres
 agent:
     kind: codefly:service
     name: nextjs
-    version: 0.0.7
+    version: 0.0.8
     publisher: codefly.dev
 service-dependencies: []
 provider-dependencies: []
@@ -17,4 +17,3 @@ endpoints:
       api: http
 spec:
     debug: false
-runtimespec: {}

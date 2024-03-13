@@ -34,12 +34,15 @@ class Storage:
             print(f"An error occurred: {e}")
 
     def get_visit_statistics(self) -> Optional[GetVisitStatisticsResponse]:
-        with self.get_cursor() as cursor:
-            cursor.execute("""
-                SELECT date, visits
-                FROM store
-            """)
-            rows = cursor.fetchall()
-            visits = [DailyVisitStatistics(date=row[0], visits=row[1]) for row in rows]
-            total_visits = sum([visit.visits for visit in visits])
-            return GetVisitStatisticsResponse(total_visits=total_visits, visits=visits)
+        try:
+            with self.get_cursor() as cursor:
+                cursor.execute("""
+                    SELECT date, visits
+                    FROM store
+                """)
+                rows = cursor.fetchall()
+                visits = [DailyVisitStatistics(date=row[0], visits=row[1]) for row in rows]
+                total_visits = sum([visit.visits for visit in visits])
+                return GetVisitStatisticsResponse(total_visits=total_visits, visits=visits)
+        except Exception as e:
+            print(f"An error occurred: {e}")

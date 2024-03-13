@@ -7,7 +7,7 @@ namespace: counter-python-nextjs-postgres
 agent:
     kind: codefly:service
     name: python-fastapi
-    version: 0.0.26
+    version: 0.0.29
     publisher: codefly.dev
 service-dependencies:
     - name: store
@@ -19,4 +19,4 @@ endpoints:
 spec:
     debug: false
     watch: true
-runtimespec: {}
+    runtime-packages: [libpq5]

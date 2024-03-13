@@ -7,7 +7,7 @@ namespace: counter-python-nextjs-postgres
 agent:
     kind: codefly:service
     name: external-postgres
-    version: 0.0.17
+    version: 0.0.19
     publisher: codefly.dev
 service-dependencies: []
 provider-dependencies: []
@@ -18,7 +18,8 @@ endpoints:
 spec:
     database-name: counter-python-nextjs-postgres
     debug: false
+    no-migration: false
     persist: false
-    silent: true
+    silent: false
     watch: false
     without-ssl: false

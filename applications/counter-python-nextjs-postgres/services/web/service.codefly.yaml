@@ -7,9 +7,14 @@ namespace: counter-python-nextjs-postgres
 agent:
     kind: codefly:service
     name: nextjs
-    version: 0.0.7
+    version: 0.0.8
     publisher: codefly.dev
-service-dependencies: []
+service-dependencies:
+    - name: backend
 provider-dependencies: []
-endpoints: []
-spec: {}
+endpoints:
+    - name: web
+      visibility: public
+      api: http
+spec:
+    debug: false
