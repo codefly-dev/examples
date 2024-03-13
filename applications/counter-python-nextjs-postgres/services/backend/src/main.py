@@ -28,7 +28,9 @@ for env in os.environ:
     if env.startswith("CODEFLY"):
         print(env)
 
+store = None
 connection = codefly.get_service_provider_info(application="counter-python-nextjs-postgres", service="store", name="postgres", key="connection")
+
 
 if connection:
     print("connection", connection)

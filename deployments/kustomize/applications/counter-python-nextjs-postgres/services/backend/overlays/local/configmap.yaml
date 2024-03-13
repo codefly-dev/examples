@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-backend-counter-python-nextjs-postgres
+  namespace: counter-python-nextjs-postgres
+data:
+  CODEFLY_PROVIDER__COUNTER_PYTHON_NEXTJS_POSTGRES__STORE___POSTGRES____CONNECTION: postgresql://user:password@host.docker.internal:30840/counter-python-nextjs-postgres

@@ -9,7 +9,8 @@ agent:
     name: nextjs
     version: 0.0.8
     publisher: codefly.dev
-service-dependencies: []
+service-dependencies:
+    - name: backend
 provider-dependencies: []
 endpoints:
     - name: web

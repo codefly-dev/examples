@@ -19,3 +19,4 @@ endpoints:
 spec:
     debug: false
     watch: true
+    runtime-packages: [libpq5]
